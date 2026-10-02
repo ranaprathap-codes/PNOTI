@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "themeMode": { "type": "string" },
+        "vibrationEnabled": { "type": "boolean" },
+        "soundVolume": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Reminder": {
+      "title": "Reminder",
+      "description": "A reminder task with notification details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "repeat": { "type": "string" },
+        "customRepeat": { "type": "string" },
+        "category": { "type": "string" },
+        "priority": { "type": "string" },
+        "audioUrl": { "type": "string" },
+        "audioName": { "type": "string" },
+        "vibration": { "type": "boolean" },
+        "icon": { "type": "string" },
+        "enabled": { "type": "boolean" },
+        "completed": { "type": "boolean" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "date", "time", "createdBy", "enabled", "completed"]
+    },
+    "Note": {
+      "title": "Note",
+      "description": "A cloud-synced text/checklist note",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "isRichText": { "type": "boolean" },
+        "checklist": { "type": "array" },
+        "pinned": { "type": "boolean" },
+        "archived": { "type": "boolean" },
+        "favorite": { "type": "boolean" },
+        "color": { "type": "string" },
+        "category": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "createdBy"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User preferences and system profile"
+    },
+    "/reminders/{reminderId}": {
+      "schema": "Reminder",
+      "description": "User reminder scheduling tasks"
+    },
+    "/notes/{noteId}": {
+      "schema": "Note",
+      "description": "User multi-format notes with local/cloud sync"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "PNotified",
+  "description": "Premium personal productivity dashboard for reminders with custom audio notifications and cloud-synced notes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
